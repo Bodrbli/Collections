@@ -23,7 +23,6 @@ public class StackImpl {
         for (int i = 0; i < num; i++) {
             namesList.push(names[random.nextInt(0, names.length - 1)]);
         }
-        //System.out.println("timesAddName" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime()-start);
         return namesList;
     }
@@ -33,7 +32,6 @@ public class StackImpl {
         for (int i = 0; i < namesList.size() * 0.05; i++) {
             namesList.get(i);
         }
-        //System.out.println("timesGetFirst" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -42,7 +40,6 @@ public class StackImpl {
         for (int i = namesList.size() - 1; i > namesList.size() * 0.95; i--) {
             namesList.get(i);
         }
-        //System.out.println("timesGetLast" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -51,7 +48,6 @@ public class StackImpl {
         for (int i = 0; i < namesList.size() * 0.05; i++) {
             namesList.remove(i);
         }
-        //System.out.println("timesRemoveFirst" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -60,15 +56,12 @@ public class StackImpl {
         for (int i = namesList.size() - 1; i > namesList.size() * 0.95; i--) {
             namesList.remove(i);
         }
-        //System.out.println("timesRemoveLast" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
     private void nameReplacement() {
         long start = System.nanoTime();
-        //System.out.println("22- " + namesList.size());
         namesList.set(random.nextInt(0, namesList.size() - 1), "Jack");
-        //System.out.println("timesReplace" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -76,7 +69,6 @@ public class StackImpl {
     private void removeRandomName() {
         long start = System.nanoTime();
         namesList.remove("Jack");
-        //System.out.println("timesRemoveRandomName=" + namesList.size() + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -88,7 +80,6 @@ public class StackImpl {
         removeLastNameList();
         nameReplacement();
         removeRandomName();
-        //System.out.println();
 
         return nanoTimes;
     }

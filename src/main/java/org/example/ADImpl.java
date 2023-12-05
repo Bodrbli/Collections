@@ -21,7 +21,6 @@ public class ADImpl {
         for (int i = 0; i < num; i++) {
             namesList.add(names[random.nextInt(0, names.length - 1)]);
         }
-        //System.out.println("timesAddName" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime()-start);
         return namesList;
     }
@@ -31,7 +30,6 @@ public class ADImpl {
         for (int i = 0; i < namesList.size() * 0.05; i++) {
             namesList.getFirst();
         }
-        //System.out.println("timesGetFirst" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -40,7 +38,6 @@ public class ADImpl {
         for (int i = namesList.size() - 1; i > namesList.size() * 0.95; i--) {
             namesList.getLast();
         }
-        //System.out.println("timesGetLast" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -49,7 +46,6 @@ public class ADImpl {
         for (int i = 0; i < namesList.size() * 0.05; i++) {
             namesList.removeFirst();
         }
-        //System.out.println("timesRemoveFirst" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -58,7 +54,6 @@ public class ADImpl {
         for (int i = namesList.size() - 1; i > namesList.size() * 0.95; i--) {
             namesList.removeLast();
         }
-        //System.out.println("timesRemoveLast" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);
     }
 
@@ -86,7 +81,6 @@ public class ADImpl {
         removeLastNameList();
 //        nameReplacement();
 //        removeRandomName();
-        //System.out.println();
 
         return nanoTimes;
     }
