@@ -1,10 +1,23 @@
 package org.example;
 
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        System.out.println("ArrayList");
+        String path = "data/index.json";
+        ResultList resultList = new ResultList("ArrayList", 100, new ALImpl(100).start());
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(new File(path), resultList);
+
+        /*System.out.println("ArrayList");
         System.out.println(new ALImpl(100).start());
         System.out.println(new ALImpl(2000).start());
         System.out.println(new ALImpl(5000).start());
@@ -22,6 +35,6 @@ public class Main {
         System.out.println("ArrayDeque");
         System.out.println(new ADImpl(100).start());
         System.out.println(new ADImpl(2000).start());
-        System.out.println(new ADImpl(5000).start());
+        System.out.println(new ADImpl(5000).start());*/
     }
 }
