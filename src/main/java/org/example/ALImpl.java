@@ -6,15 +6,14 @@ import java.util.Random;
 
 public class ALImpl {
     private static final Random random = new Random();
-    private ArrayList<String> namesList;
+    private List<String> namesList;
     private ArrayList<Long> nanoTimes = new ArrayList<>();
 
     public ALImpl(int num) {
         this.namesList = (ArrayList<String>) addNames(num);
-
     }
 
-    private List<String> addNames(int num) {
+    private List<String> addNames(int num) { //заполнение списка длинной num случайными именами
 
         String[] names = {"Андрей", "Ирина", "Полина", "Татьяна", "Сергей", "Екатерина",
                 "Марина", "Николай", "Артем", "Иван", "Павел", "Елена", "Семен", "Роман", "Наталья",
@@ -28,7 +27,7 @@ public class ALImpl {
         return namesList;
     }
 
-    private void getFirstNameList() {
+    private void getFirstNameList() { //получение первых 5% списка
         long start = System.nanoTime();
         for (int i = 0; i < namesList.size() * 0.05; i++) {
             namesList.get(i);
@@ -36,7 +35,7 @@ public class ALImpl {
         nanoTimes.add(System.nanoTime() - start);
     }
 
-    private void getLastNameList() {
+    private void getLastNameList() { //получение последних 5% списка
         long start = System.nanoTime();
         for (int i = namesList.size() - 1; i > namesList.size() * 0.95; i--) {
             namesList.get(i);
@@ -44,15 +43,15 @@ public class ALImpl {
         nanoTimes.add(System.nanoTime() - start);
     }
 
-    private void removeFirstNameList() {
+    private void removeFirstNameList() { //удаление первых 5% списка
         long start = System.nanoTime();
         for (int i = 0; i < namesList.size() * 0.05; i++) {
-            namesList.remove(i);
+            namesList.remove(0);
         }
         nanoTimes.add(System.nanoTime() - start);
     }
 
-    private void removeLastNameList() {
+    private void removeLastNameList() { //удаление последних 5% списка
         long start = System.nanoTime();
         for (int i = namesList.size() - 1; i > namesList.size() * 0.95; i--) {
             namesList.remove(i);
@@ -60,20 +59,19 @@ public class ALImpl {
         nanoTimes.add(System.nanoTime() - start);
     }
 
-    private void nameReplacement() {
+    private void nameReplacement() { //изменить рандомный элемент списка на Jack
         long start = System.nanoTime();
         namesList.set(random.nextInt(0, namesList.size() - 1), "Jack");
         nanoTimes.add(System.nanoTime() - start);
     }
 
-
-    private void removeRandomName() {
+    private void removeRandomName() { //удаление имени Jack
         long start = System.nanoTime();
         namesList.remove("Jack");
         nanoTimes.add(System.nanoTime() - start);
     }
 
-    public ArrayList<Long> start() {
+    public ArrayList<Long> start() { //запуск методов
 
         getFirstNameList();
         getLastNameList();

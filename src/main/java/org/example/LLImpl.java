@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class LLImpl {
     private static final Random random = new Random();
-    private LinkedList<String> namesList;
+    private List<String> namesList;
     private ArrayList<Long> nanoTimes = new ArrayList<>();
 
     public LLImpl(int num) {
@@ -47,7 +47,7 @@ public class LLImpl {
     private void removeFirstNameList() {
         long start = System.nanoTime();
         for (int i = 0; i < namesList.size() * 0.05; i++) {
-            namesList.remove(i);
+            namesList.remove(0);
         }
         nanoTimes.add(System.nanoTime() - start);
     }

@@ -1,27 +1,28 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Stack;
 
 public class StackImpl {
     private static final Random random = new Random();
-    private Stack<String> namesList;
+    private List<String> namesList;
     private ArrayList<Long> nanoTimes = new ArrayList<>();
     public StackImpl(int num) {
         this.namesList = (Stack<String>) addNames(num);
 
     }
 
-    private Stack<String> addNames(int num) {
+    private List<String> addNames(int num) {
 
         String[] names = {"Андрей", "Ирина", "Полина", "Татьяна", "Сергей", "Екатерина",
                 "Марина", "Николай", "Артем", "Иван", "Павел", "Елена", "Семен", "Роман", "Наталья",
                 "Антон", "Александр", "Алексей", "Игорь", "Олеся"};
-        Stack<String> namesList = new Stack<>();
+        List<String> namesList = new Stack<>();
         long start = System.nanoTime();
         for (int i = 0; i < num; i++) {
-            namesList.push(names[random.nextInt(0, names.length - 1)]);
+            namesList.add(names[random.nextInt(0, names.length - 1)]);
         }
         nanoTimes.add(System.nanoTime()-start);
         return namesList;
@@ -46,7 +47,7 @@ public class StackImpl {
     private void removeFirstNameList() {
         long start = System.nanoTime();
         for (int i = 0; i < namesList.size() * 0.05; i++) {
-            namesList.remove(i);
+            namesList.remove(0);
         }
         nanoTimes.add(System.nanoTime() - start);
     }
