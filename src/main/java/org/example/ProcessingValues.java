@@ -1,5 +1,7 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import java.util.*;
 
 public class ProcessingValues {
@@ -106,6 +108,14 @@ public class ProcessingValues {
 
     public long[] getRemoveNameArray() {
         return removeNameArray;
+    }
+    @JsonGetter("ListType")
+    public String getListType() {
+        return listType;
+    }
+    @JsonGetter("MidValuesList")
+    public static List<Values> getValuesList() {
+        return valuesList;
     }
 
     @Override

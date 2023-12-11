@@ -1,0 +1,16 @@
+table {
+    text-align: center;
+    background-color: burlywood;
+}
+thead {
+    background-color: aquamarine;
+}
+thead tr th {
+    width: auto;
+}
+tbody {
+    font-size: smaller;
+}
+tbody td {
+    padding: 10px;
+}
