@@ -5,7 +5,7 @@ import java.util.*;
 public class ProcessingValues {
     String listType;
     private static List<Values> valuesList;
-    private static ArrayDeque<Values> valueArrayDeque;
+    /*private static ArrayDeque<Values> valueArrayDeque;*/
     private long[] fillCollectionArray = new long[5];
     private long[] first5PercentArray = new long[5];
     private long[] last5PercentArray = new long[5];
@@ -60,23 +60,14 @@ public class ProcessingValues {
                 valuesList.add(values);
             }
         } else if (listType.equals("ArrayDeque")) {
-            valueArrayDeque = new ArrayDeque<>();
+            valuesList = new ArrayList<>();
             for (int i = 0; i < 5; i++) {
                 Values values = new Values(new ADImpl(num).start());
-                valueArrayDeque.add(values);
+                valuesList.add(values);
             }
         }
         return valuesList;
     }
-    /*private static ArrayDeque<Values> get5value(int num, String listType, int count) { // проводим 5 замеров
-
-            valueArrayDeque = new ArrayDeque<>();
-            for (int i = 0; i < count; i++) {
-                Values values = new Values(new LLImpl(num).start());
-                valuesList.add(values);
-            }
-        return valueArrayDeque;
-    }*/
 
     private static Long getMidValue(long[] array) { // вычисление среднего значения для 5 замеров
 

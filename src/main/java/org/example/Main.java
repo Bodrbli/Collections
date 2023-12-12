@@ -17,11 +17,11 @@ public class Main {
 
         ProcessingValues.resultValues(100, "Stack"),
         ProcessingValues.resultValues(2000, "Stack"),
-        ProcessingValues.resultValues(5000, "Stack")
+        ProcessingValues.resultValues(5000, "Stack"),
 
-        /*ProcessingValues.resultValues(100, "ArrayDeque"),
+        ProcessingValues.resultValues(100, "ArrayDeque"),
         ProcessingValues.resultValues(2000, "ArrayDeque"),
-        ProcessingValues.resultValues(5000, "ArrayDeque")*/
+        ProcessingValues.resultValues(5000, "ArrayDeque")
         );
         Dump.getDump(toJson);
     }

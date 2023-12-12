@@ -57,20 +57,14 @@ public class ADImpl {
         nanoTimes.add(System.nanoTime() - start);
     }
 
-    /*private void nameReplacement() {
-        long start = System.nanoTime();
-        namesList.s (random.nextInt(0, namesList.size() - 1), "Jack");
-        //System.out.println("timesReplace" + namesList.size() + "=" + (System.nanoTime() - start));
-        nanoTimes.add(System.nanoTime() - start);
-    }*/
+    private void nameReplacement() {
+        nanoTimes.add(0L);
+    }
 
 
-    /*private void removeRandomName() {
-        long start = System.nanoTime();
-        namesList.remove("Jack");
-        //System.out.println("timesRemoveRandomName=" + namesList.size() + (System.nanoTime() - start));
-        nanoTimes.add(System.nanoTime() - start);
-    }*/
+    private void removeRandomName() {
+        nanoTimes.add(0L);
+    }
 
     public ArrayList<Long> start() {
 
@@ -78,8 +72,8 @@ public class ADImpl {
         getLastNameList();
         removeFirstNameList();
         removeLastNameList();
-//        nameReplacement();
-//        removeRandomName();
+        nameReplacement();
+        removeRandomName();
 
         return nanoTimes;
     }
