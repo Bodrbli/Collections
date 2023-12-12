@@ -1,16 +1,10 @@
 'use strict'
 
-/* fetch('https://raw.githubusercontent.com/Bodrbli/Collections/main/data/index.json')
+ fetch('https://raw.githubusercontent.com/Bodrbli/Collections/main/data/index.json')
       .then(response => response.json())
-      .then(json => json.forEach(render)) */
+      .then(json => json.forEach(render))
 
-      async function showTable() {
-
-      let response = await fetch('https://raw.githubusercontent.com/Bodrbli/Collections/main/data/index.json');
-      let str = await response.json();
-      let values = JSON.parse(str);
-
-      for (let j = 0; j < array.lenght; j++) {
+      function render(value) {
                   const bodyRow = document.querySelector('tbody');
                   const t = document.querySelector('#element-row');
                   bodyRow.append(t.content.cloneNode(true));

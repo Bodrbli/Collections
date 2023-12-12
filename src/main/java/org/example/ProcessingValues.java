@@ -29,10 +29,10 @@ public class ProcessingValues {
         }
     }
 
-    public static List<Long> resultValues(int num, String listType) { //инициализация списка со средними значениями
+    public static Values/*List<Long>*/ resultValues(int num, String listType) { //инициализация списка со средними значениями
     ProcessingValues processingValues = new ProcessingValues(get5value(num, listType), listType);
 
-        List<Long> result = Arrays.asList(
+        /*List<Long> result = Arrays.asList(
                 ProcessingValues.getMidValue(processingValues.fillCollectionArray),
                 ProcessingValues.getMidValue(processingValues.first5PercentArray),
                 ProcessingValues.getMidValue(processingValues.last5PercentArray),
@@ -41,7 +41,15 @@ public class ProcessingValues {
                 ProcessingValues.getMidValue(processingValues.setNameArray),
                 ProcessingValues.getMidValue(processingValues.removeNameArray)
         );
-        return result;
+        return result;*/
+        Values midValue = new Values(listType, num,  ProcessingValues.getMidValue(processingValues.fillCollectionArray),
+                                                     ProcessingValues.getMidValue(processingValues.first5PercentArray),
+                                                     ProcessingValues.getMidValue(processingValues.last5PercentArray),
+                                                     ProcessingValues.getMidValue(processingValues.removeFirstArray),
+                                                     ProcessingValues.getMidValue(processingValues.removeLastArray),
+                                                     ProcessingValues.getMidValue(processingValues.setNameArray),
+                                                     ProcessingValues.getMidValue(processingValues.removeNameArray));
+        return midValue;
     }
     private static List<Values> get5value(int num, String listType) { // проводим 5 замеров
 
@@ -108,14 +116,6 @@ public class ProcessingValues {
 
     public long[] getRemoveNameArray() {
         return removeNameArray;
-    }
-    @JsonGetter("ListType")
-    public String getListType() {
-        return listType;
-    }
-    @JsonGetter("MidValuesList")
-    public static List<Values> getValuesList() {
-        return valuesList;
     }
 
     @Override

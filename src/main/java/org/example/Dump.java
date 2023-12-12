@@ -11,7 +11,7 @@ import java.util.List;
 @JsonAutoDetect
 public class Dump implements Serializable {
     static String path = "data/index.json";
-    public static void getDump( List<List<Long>> list) {
+    public static void getDump( List<Values> list) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File(path), list);
