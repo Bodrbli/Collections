@@ -1,7 +1,5 @@
 package org.example;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-
 import java.util.*;
 
 public class ProcessingValues {
@@ -29,19 +27,9 @@ public class ProcessingValues {
         }
     }
 
-    public static Values/*List<Long>*/ resultValues(int num, String listType) { //инициализация списка со средними значениями
+    public static Values resultValues(int num, String listType) {                           //инициализация объекта со средними значениями
     ProcessingValues processingValues = new ProcessingValues(get5value(num, listType), listType);
 
-        /*List<Long> result = Arrays.asList(
-                ProcessingValues.getMidValue(processingValues.fillCollectionArray),
-                ProcessingValues.getMidValue(processingValues.first5PercentArray),
-                ProcessingValues.getMidValue(processingValues.last5PercentArray),
-                ProcessingValues.getMidValue(processingValues.removeFirstArray),
-                ProcessingValues.getMidValue(processingValues.removeLastArray),
-                ProcessingValues.getMidValue(processingValues.setNameArray),
-                ProcessingValues.getMidValue(processingValues.removeNameArray)
-        );
-        return result;*/
         Values midValue = new Values(listType, num,  ProcessingValues.getMidValue(processingValues.fillCollectionArray),
                                                      ProcessingValues.getMidValue(processingValues.first5PercentArray),
                                                      ProcessingValues.getMidValue(processingValues.last5PercentArray),
@@ -70,6 +58,12 @@ public class ProcessingValues {
             for (int i = 0; i < 5; i++) {
                 Values values = new Values(new StackImpl(num).start());
                 valuesList.add(values);
+            }
+        } else if (listType.equals("ArrayDeque")) {
+            valueArrayDeque = new ArrayDeque<>();
+            for (int i = 0; i < 5; i++) {
+                Values values = new Values(new ADImpl(num).start());
+                valueArrayDeque.add(values);
             }
         }
         return valuesList;

@@ -10,7 +10,7 @@ public class ALImpl {
     private ArrayList<Long> nanoTimes = new ArrayList<>();
 
     public ALImpl(int num) {
-        this.namesList = (ArrayList<String>) addNames(num);
+        this.namesList = addNames(num);
     }
 
     private List<String> addNames(int num) { //заполнение списка длинной num случайными именами

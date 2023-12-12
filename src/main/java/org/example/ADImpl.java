@@ -59,7 +59,6 @@ public class ADImpl {
 
     /*private void nameReplacement() {
         long start = System.nanoTime();
-        //System.out.println("22- " + namesList.size());
         namesList.s (random.nextInt(0, namesList.size() - 1), "Jack");
         //System.out.println("timesReplace" + namesList.size() + "=" + (System.nanoTime() - start));
         nanoTimes.add(System.nanoTime() - start);

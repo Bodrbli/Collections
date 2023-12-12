@@ -11,7 +11,7 @@ public class LLImpl {
     private ArrayList<Long> nanoTimes = new ArrayList<>();
 
     public LLImpl(int num) {
-        this.namesList = (LinkedList<String>) addNames(num);
+        this.namesList = addNames(num);
     }
 
     private List<String> addNames(int num) {

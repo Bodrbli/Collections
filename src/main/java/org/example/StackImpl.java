@@ -10,7 +10,7 @@ public class StackImpl {
     private List<String> namesList;
     private ArrayList<Long> nanoTimes = new ArrayList<>();
     public StackImpl(int num) {
-        this.namesList = (Stack<String>) addNames(num);
+        this.namesList = addNames(num);
 
     }
 
